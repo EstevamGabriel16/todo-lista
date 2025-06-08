@@ -1,0 +1,47 @@
+body {
+    font-family: 'poppins', sans-serif;/*Define a fonte do texto para uma fonte sem serifa (mais simples e moderna).*/
+    background: #f5f5f5;/*Cor de fundo clara, quase um cinza muito suave.*/
+    padding: 2rem;/* Espaço interno nas bordas da página (em torno do conteúdo).*/
+    display: flex;/*Ativa o Flexbox no corpo para organizar os elementos.*/
+    justify-content: center;/*— Centraliza horizontalmente o conteúdo dentro do body.*/
+}
+
+.recipiente-princ{
+    background: rgb(247, 244, 244);/* Fundo branco para o recipiente principal.*/
+    padding: 2rem;/*Espaço interno em todos os lados dentro da caixa.*/
+    border-radius: 8px;/*Bordas arredondadas*/
+    width: 100%;/*Largura máxima de 100% do elemento pai.*/
+    max-width: 500%;/* Limita a largura máxima para 500 pixels para evitar que fique muito largo em telas grandes.*/
+    box-shadow: 0 0 10px rgba(0, 0, 0, 1);/*Sombra suave ao redor, dando um efeito de elevação.*/
+}
+
+.grupo-ipunt{
+    display: flex;/*Usado para organizar o campo de texto e o botão na horizontal.*/
+    gap: 1rem;/*Espaçamento horizontal de 1rem entre os elementos filhos.*/
+    margin-bottom: 1rem;/*Espaço embaixo do grupo para separar da lista de tarefas.*/
+}
+
+input{
+    flex: 1; /* O input ocupa o máximo de espaço disponível dentro do container flex (input + botão).*/
+    padding: 0.5rem/*Espaço interno para o texto não ficar grudado nas bordas.*/
+}
+
+button{
+    padding: 0.5rem 1rem;/*Espaço interno: 0.5rem vertical, 1rem horizontal.*/
+    cursor: pointer;/*Cursor muda para mãozinha quando passa em cima do botão, indicando que é clicável.*/
+}
+
+li{
+    display: flex;/*Coloca o texto e o botão de remover em linha, horizontalmente.*/
+    justify-content: space-between;/*Espaça o texto e o botão para lados opostos.*/
+    margin: 0.5rem 0;/* Espaço vertical entre itens da lista.*/
+    background: #eee;/*Fundo cinza claro para cada tarefa.*/
+    padding: 0.5rem;/*Espaço interno para não grudar o texto nas bordas.*/
+    border-radius: 4px;/* Bordas arredondadas leves.*/
+}
+/*li.completed — Alvo dos itens que estão marcados como concluídos (classe adicionada via JavaScript*/
+li.completed{
+    text-decoration: line-through;/* Risca o texto da tarefa, indicando que foi feita.*/
+    color: gray;/*Muda a cor do texto para cinza para indicar que está desativado.*/
+}
+

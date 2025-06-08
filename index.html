@@ -1,11 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Todo list</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="recipiente-princ"> <!--Usada para agrupar e centralizar o conteúdo com estilo-->
+        <h1>Minha lista de Tarefas</h1>
     
+
+    <div class="grupo-input"><!--Agrupa o campo de entrada e o botão de adicionar tarefa-->
+
+        <input type="text" id="taskInput" placeholder="Nova tarefa"><!--Um campo de texto onde o usuário digita a nova tarefa-->
+
+       <button id="addTask">Adicionar</button><!--Botão para adicionar uma nova tarefa-->
+
+    </div>
+
+        <ul id="taskList"></ul><!--Uma lista não ordenada, onde as tarefas vão ser exibidas-->
+
+    </div>
+
+    <script src="app.js" defer></script> <!--Inclui o arquivo JavaScript-->
+
 </body>
 </html>
