@@ -3,28 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Todo list</title>
+    <title>Agenda de Tarefas</title>
+
+    <!-- Fonte moderna do Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    
+    <!-- Link para o arquivo de estilos CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="recipiente-princ"> <!--Usada para agrupar e centralizar o conteúdo com estilo-->
-        <h1>Minha lista de Tarefas</h1>
-    
+    <!-- Contêiner principal que centraliza o conteúdo -->
+    <div class="recipiente-princ">
+        <h1>Minha Agenda de Tarefas</h1>
 
-    <div class="grupo-input"><!--Agrupa o campo de entrada e o botão de adicionar tarefa-->
+        <!-- Grupo que reúne os campos de entrada -->
+        <div class="grupo-input">
+            <!-- Campo de texto para digitar a tarefa -->
+            <input type="text" id="taskInput" placeholder="Nova tarefa">
+            
+            <!-- Novo campo de horário para a tarefa -->
+            <input type="time" id="taskTime">
 
-        <input type="text" id="taskInput" placeholder="Nova tarefa"><!--Um campo de texto onde o usuário digita a nova tarefa-->
+            <!-- Botão para adicionar a tarefa -->
+            <button id="addTask">Adicionar</button>
+        </div>
 
-       <button id="addTask">Adicionar</button><!--Botão para adicionar uma nova tarefa-->
+        <!-- Lista onde as tarefas serão exibidas dinamicamente -->
+        <ul id="taskList"></ul>
 
+        <!-- Seção com contadores de tarefas -->
+        <div id="taskCounters">
+            <p>Total: <span id="totalCount">0</span></p>
+            <p>Concluídas: <span id="completedCount">0</span></p>
+            <p>Pendentes: <span id="pendingCount">0</span></p>
+        </div>
     </div>
 
-        <ul id="taskList"></ul><!--Uma lista não ordenada, onde as tarefas vão ser exibidas-->
-
-    </div>
-
-    <script src="app.js" defer></script> <!--Inclui o arquivo JavaScript-->
-
+    <!-- Importa o arquivo JavaScript responsável pela lógica -->
+    <script src="app.js" defer></script>
 </body>
 </html>

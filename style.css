@@ -1,47 +1,91 @@
+/* Define o estilo base da página */
 body {
-    font-family: 'poppins', sans-serif;/*Define a fonte do texto para uma fonte sem serifa (mais simples e moderna).*/
-    background: #f5f5f5;/*Cor de fundo clara, quase um cinza muito suave.*/
-    padding: 2rem;/* Espaço interno nas bordas da página (em torno do conteúdo).*/
-    display: flex;/*Ativa o Flexbox no corpo para organizar os elementos.*/
-    justify-content: center;/*— Centraliza horizontalmente o conteúdo dentro do body.*/
+    font-family: 'Poppins', sans-serif; /* Fonte moderna */
+    background: #7e7676; /* Fundo claro */
+    padding: 2rem;
+    display: flex;
+    justify-content: center; /* Centraliza o conteúdo horizontalmente */
 }
 
-.recipiente-princ{
-    background: rgb(247, 244, 244);/* Fundo branco para o recipiente principal.*/
-    padding: 2rem;/*Espaço interno em todos os lados dentro da caixa.*/
-    border-radius: 8px;/*Bordas arredondadas*/
-    width: 100%;/*Largura máxima de 100% do elemento pai.*/
-    max-width: 500%;/* Limita a largura máxima para 500 pixels para evitar que fique muito largo em telas grandes.*/
-    box-shadow: 0 0 10px rgba(0, 0, 0, 1);/*Sombra suave ao redor, dando um efeito de elevação.*/
+/* Caixa principal que envolve tudo */
+.recipiente-princ {
+    background: #00000028;
+    padding: 2rem;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
 }
 
-.grupo-ipunt{
-    display: flex;/*Usado para organizar o campo de texto e o botão na horizontal.*/
-    gap: 1rem;/*Espaçamento horizontal de 1rem entre os elementos filhos.*/
-    margin-bottom: 1rem;/*Espaço embaixo do grupo para separar da lista de tarefas.*/
+/* Grupo de inputs e botão */
+.grupo-input {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
 }
 
-input{
-    flex: 1; /* O input ocupa o máximo de espaço disponível dentro do container flex (input + botão).*/
-    padding: 0.5rem/*Espaço interno para o texto não ficar grudado nas bordas.*/
+/* Campo de texto e horário */
+input[type="text"],
+input[type="time"] {
+    flex: 1;
+    padding: 0.5rem;
+    border: 1px solid #926e6e;
+    border-radius: 4px;
+    font-size: 1rem;
 }
 
-button{
-    padding: 0.5rem 1rem;/*Espaço interno: 0.5rem vertical, 1rem horizontal.*/
-    cursor: pointer;/*Cursor muda para mãozinha quando passa em cima do botão, indicando que é clicável.*/
+/* Botão de adicionar tarefa */
+button {
+    padding: 0.5rem 1rem;
+    background-color: #007bff; /* Azul vibrante */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
-li{
-    display: flex;/*Coloca o texto e o botão de remover em linha, horizontalmente.*/
-    justify-content: space-between;/*Espaça o texto e o botão para lados opostos.*/
-    margin: 0.5rem 0;/* Espaço vertical entre itens da lista.*/
-    background: #eee;/*Fundo cinza claro para cada tarefa.*/
-    padding: 0.5rem;/*Espaço interno para não grudar o texto nas bordas.*/
-    border-radius: 4px;/* Bordas arredondadas leves.*/
-}
-/*li.completed — Alvo dos itens que estão marcados como concluídos (classe adicionada via JavaScript*/
-li.completed{
-    text-decoration: line-through;/* Risca o texto da tarefa, indicando que foi feita.*/
-    color: gray;/*Muda a cor do texto para cinza para indicar que está desativado.*/
+button:hover {
+    background-color: #0056b3; /* Azul mais escuro no hover */
 }
 
+/* Estilo de cada tarefa na lista */
+li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0.5rem 0;
+    background: #ffffff;
+    padding: 0.5rem;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+/* Tarefa marcada como concluída */
+li.completed {
+    text-decoration: line-through;
+    color: gray;
+}
+
+/* Botão de excluir tarefa (❌) */
+li button {
+    background: transparent;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+/* Seção de contadores de tarefas */
+#taskCounters {
+    margin-top: 1rem;
+    background: #ddd;
+    padding: 1rem;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+/* Estilo dos textos nos contadores */
+#taskCounters p {
+    margin: 0.3rem 0;
+    font-weight: bold;
+}
