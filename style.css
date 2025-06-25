@@ -1,7 +1,7 @@
 /* Define o estilo base da página */
 body {
     font-family: 'Poppins', sans-serif; /* Fonte moderna */
-    background: #7e7676; /* Fundo claro */
+    background:#4b4453; /* Fundo escuro */
     padding: 2rem;
     display: flex;
     justify-content: center; /* Centraliza o conteúdo horizontalmente */
@@ -9,18 +9,18 @@ body {
 
 /* Caixa principal que envolve tudo */
 .recipiente-princ {
-    background: #00000028;
+    background: #113fd828; /*Cor do recipiente*/
+    color: black; /*cor da fonte do recipiente*/
     padding: 2rem;
     border-radius: 8px;
     width: 100%;
     max-width: 500px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
 }
 
 /* Grupo de inputs e botão */
 .grupo-input {
-    display: flex;
-    gap: 0.5rem;
+    display: flex;/* Coloca os elementos (input, time e botão) lado a lado */
+    gap:0.5rem;
     margin-bottom: 1rem;
 }
 
@@ -31,7 +31,7 @@ input[type="time"] {
     padding: 0.5rem;
     border: 1px solid #926e6e;
     border-radius: 4px;
-    font-size: 1rem;
+    font-size: 1.2rem;
 }
 
 /* Botão de adicionar tarefa */
