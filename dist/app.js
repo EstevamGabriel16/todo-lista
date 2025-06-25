@@ -10,10 +10,19 @@ add.onclick = () => {
         return;
     const text = taiinput.value;
     const hora = temp.value;
-    const ativ = document.createElement("li"); // cria um item de lista
-    ativ.innerText = `${text} - ${hora}`; // coloca o texto e a hora juntos
-    taList.appendChild(ativ); // adiciona o item na lista
-    // limpa os campos
+    const ativ = document.createElement("li"); // Cria item da lista
+    const checar = document.createElement("input"); // Cria checkbox
+    checar.type = "checkbox";
+    // Quando marcar a caixinha, risca a tarefa
+    checar.onchange = () => {
+        ativ.classList.toggle("concluido");
+    };
+    // Adiciona a checkbox e o texto dentro da tarefa
+    ativ.appendChild(checar);
+    ativ.append(` ${text} - ${hora}`);
+    // Coloca o item na lista
+    taList.appendChild(ativ);
+    // Limpa os campos
     taiinput.value = "";
     temp.value = "";
 };

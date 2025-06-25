@@ -89,3 +89,8 @@ li button {
     margin: 0.3rem 0;
     font-weight: bold;
 }
+/* Quando a tarefa estiver concluída, risca o texto */
+.concluido {
+  text-decoration: line-through;
+  color: gray;
+}
