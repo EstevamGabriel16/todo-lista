@@ -1,0 +1,76 @@
+body{
+    background-color: rgb(187, 154, 111);
+    max-width: 500px;
+    margin: 0 auto;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+    color: #ffffff;
+    font-size: 40px;
+    text-align: center;
+}
+
+input {
+    height: 30px;
+    border: 2px solid #ffffff;
+    outline: none;
+    width: 79%;
+}
+
+button{
+    border: none;
+    height: 35px;
+    background-color: rgb(101, 101, 107);
+    color: #fff;
+    cursor: pointer;
+    transition: 0.5s;
+    width: 80px;
+}
+
+button:hover{
+    background-color: rgb(37, 51, 253);
+    
+}
+
+button:active{
+    background-color: rgb(33, 33, 230);
+    height: 40px;
+}
+
+ul{
+    list-style-type: none;
+    padding: 0;
+}
+
+li{
+    background-color: rgb(160, 135, 103);
+    padding: 10px;
+    margin: 10px auto;
+    border-radius: 5px;
+    color: #ffffff;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+span{
+    cursor: pointer;
+}
+
+.grupo-input {
+    display: flex;/*Coloca os elementos (input, time e botão) lado a lado */
+    gap:0.5rem;
+    margin-bottom: 1rem;
+    padding: 0.5px;
+}
+
+#tarefa {
+    display: block;    /* Faz ele ocupar toda a largura disponível */
+    margin-bottom: 1rem; /* Espaço abaixo dele */
+    height: 30px;
+    border: 2px solid #ffffff;
+    outline: none;
+    width: 100%;
+}
