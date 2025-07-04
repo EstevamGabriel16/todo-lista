@@ -1,96 +1,76 @@
-/* Define o estilo base da página */
-body {
-    font-family: 'Poppins', sans-serif; /* Fonte moderna */
-    background:#4b4453; /* Fundo escuro */
-    padding: 2rem;
-    display: flex;
-    justify-content: center; /* Centraliza o conteúdo horizontalmente */
-}
-
-/* Caixa principal que envolve tudo */
-.recipiente-princ {
-    background: #113fd828; /*Cor do recipiente*/
-    color: black; /*cor da fonte do recipiente*/
-    padding: 2rem;
-    border-radius: 8px;
-    width: 100%;
+body{
+    background-color: rgb(187, 154, 111);
     max-width: 500px;
+    margin: 0 auto;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-/* Grupo de inputs e botão */
+h1 {
+    color: #ffffff;
+    font-size: 40px;
+    text-align: center;
+}
+
+input {
+    height: 30px;
+    border: 2px solid #ffffff;
+    outline: none;
+    width: 79%;
+}
+
+button{
+    border: none;
+    height: 35px;
+    background-color: rgb(101, 101, 107);
+    color: #fff;
+    cursor: pointer;
+    transition: 0.5s;
+    width: 80px;
+}
+
+button:hover{
+    background-color: rgb(37, 51, 253);
+
+}
+
+button:active{
+    background-color: rgb(33, 33, 230);
+    height: 40px;
+}
+
+ul{
+    list-style-type: none;
+    padding: 0;
+}
+
+li{
+    background-color: rgb(160, 135, 103);
+    padding: 10px;
+    margin: 10px auto;
+    border-radius: 5px;
+    color: #ffffff;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+span{
+    cursor: pointer;
+}
+
 .grupo-input {
-    display: flex;/* Coloca os elementos (input, time e botão) lado a lado */
+    display: flex;
     gap:0.5rem;
     margin-bottom: 1rem;
+    padding: 0.5px;
 }
 
-/* Campo de texto e horário */
-input[type="text"],
-input[type="time"] {
-    flex: 1;
-    padding: 0.5rem;
-    border: 1px solid #926e6e;
-    border-radius: 4px;
-    font-size: 1.2rem;
-}
-
-/* Botão de adicionar tarefa */
-button {
-    padding: 0.5rem 1rem;
-    background-color: #007bff; /* Azul vibrante */
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-button:hover {
-    background-color: #0056b3; /* Azul mais escuro no hover */
-}
-
-/* Estilo de cada tarefa na lista */
-li {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 0.5rem 0;
-    background: #ffffff;
-    padding: 0.5rem;
-    border-radius: 4px;
-    font-size: 1rem;
-}
-
-/* Tarefa marcada como concluída */
-li.completed {
-    text-decoration: line-through;
-    color: gray;
-}
-
-/* Botão de excluir tarefa (❌) */
-li button {
-    background: transparent;
-    border: none;
-    font-size: 1.2rem;
-    cursor: pointer;
-}
-
-/* Seção de contadores de tarefas */
-#taskCounters {
-    margin-top: 1rem;
-    background: #ddd;
-    padding: 1rem;
-    border-radius: 8px;
-    font-size: 1rem;
-}
-
-/* Estilo dos textos nos contadores */
-#taskCounters p {
-    margin: 0.3rem 0;
-    font-weight: bold;
-}
-/* Quando a tarefa estiver concluída, risca o texto */
-.concluido {
-  text-decoration: line-through;
-  color: gray;
+#tarefa {
+    display: block;    /* Faz ele ocupar toda a largura disponível /
+    margin-bottom: 1rem; / Espaço abaixo dele */
+    height: 30px;
+    border: 2px solid #ffffff;
+    outline: none;
+    width: 100%;
 }
