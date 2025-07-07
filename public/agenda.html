@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <title>Lista de Tarefas</title>
+</head>
+
+<body>
+  <h1>Minha Lista de Tarefas</h1>
+
+  <!-- Campo de texto -->
+  <input placeholder="Digite a sua tarefa" id="tarefa" />
+
+  <!-- Grupo de entrada -->
+  <div class="grupo-input">
+    <input type="date" id="data" />
+    <input type="time" id="temp" />
+    <button id="add">Adicionar</button>
+  </div>
+
+  <!-- Lista de tarefas -->
+  <ul id="lista"></ul>
+
+  <!-- Lógica do JavaScript -->
+  <script src="/dist/app.js" defer></script> <!-- ou dist/app.js se estiver na pasta dist -->
+</body>
+
+</html>

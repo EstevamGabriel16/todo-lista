@@ -1,33 +1,29 @@
 "use strict";
-// Pega os elementos do HTML
+// Seleciona os elementos do HTML com garantia de que não são nulos
 const inputTarefa = document.getElementById("tarefa");
 const inputHora = document.getElementById("temp");
 const inputData = document.getElementById("data");
 const btnAdd = document.getElementById("add");
 const lista = document.getElementById("lista");
-// Objeto de tarefas por data
+// Onde as tarefas ficam guardadas separadas por data
 let tarefasPorData = {};
-// Carrega as tarefas do localStorage ao iniciar
-function carregarDoLocalStorage() {
+// Pega as tarefas salvas no navegador
+function carregarTarefas() {
     const salvas = localStorage.getItem("tarefas");
-    if (salvas) {
+    if (salvas)
         tarefasPorData = JSON.parse(salvas);
-    }
 }
-// Salva as tarefas no localStorage
-function salvarNoLocalStorage() {
+// Salva no navegador
+function salvarTarefas() {
     localStorage.setItem("tarefas", JSON.stringify(tarefasPorData));
 }
-// Atualiza a lista de tarefas da data atual
-function atualizarLista() {
+// Mostra as tarefas da data escolhida
+function mostrarTarefas() {
     const data = inputData.value;
     lista.innerHTML = "";
-    const tarefas = [...(tarefasPorData[data] || [])];
-    // Ordena pelo horário 
-    tarefas.sort((a, b) => {
-        return a.hora.localeCompare(b.hora);
-    });
-    tarefas.forEach((tarefa, index) => {
+    const tarefas = tarefasPorData[data] || [];
+    tarefas.sort((a, b) => a.hora.localeCompare(b.hora));
+    tarefas.forEach((tarefa, i) => {
         const li = document.createElement("li");
         const checkbox = document.createElement("input");
         checkbox.type = "checkbox";
@@ -35,47 +31,38 @@ function atualizarLista() {
         checkbox.onchange = () => {
             tarefa.concluida = checkbox.checked;
             li.classList.toggle("concluida", tarefa.concluida);
-            salvarNoLocalStorage();
+            salvarTarefas();
         };
-        const textoSpan = document.createElement("span");
-        textoSpan.innerText = `${tarefa.texto} - ${tarefa.hora}`;
-        const btnExcluir = document.createElement("button");
-        btnExcluir.innerText = "❌";
-        btnExcluir.onclick = () => {
-            tarefas.splice(index, 1);
-            salvarNoLocalStorage();
-            atualizarLista();
+        const texto = document.createElement("span");
+        texto.innerText = `${tarefa.texto} - ${tarefa.hora}`;
+        const excluir = document.createElement("button");
+        excluir.innerText = "❌";
+        excluir.onclick = () => {
+            tarefasPorData[data] = tarefasPorData[data].filter((_, idx) => idx !== i);
+            salvarTarefas();
+            mostrarTarefas();
         };
-        li.appendChild(checkbox);
-        li.appendChild(textoSpan);
-        li.appendChild(btnExcluir);
+        li.append(checkbox, texto, excluir);
         li.classList.toggle("concluida", tarefa.concluida);
         lista.appendChild(li);
     });
 }
-// Quando clicar em adicionar
+// Adiciona nova tarefa
 btnAdd.onclick = () => {
     const texto = inputTarefa.value;
     const hora = inputHora.value;
     const data = inputData.value;
     if (!texto || !hora || !data)
         return;
-    if (!tarefasPorData[data]) {
+    if (!tarefasPorData[data])
         tarefasPorData[data] = [];
-    }
-    tarefasPorData[data].push({
-        texto,
-        hora,
-        concluida: false,
-    });
+    tarefasPorData[data].push({ texto, hora, concluida: false });
     inputTarefa.value = "";
     inputHora.value = "";
-    salvarNoLocalStorage();
-    atualizarLista();
+    salvarTarefas();
+    mostrarTarefas();
 };
-// Quando mudar a data
-inputData.onchange = () => {
-    atualizarLista();
-};
-// Inicializa
-carregarDoLocalStorage(); // Carrega se tiver salvo
+// Quando trocar a data, atualiza a tela
+inputData.onchange = mostrarTarefas;
+// Carrega ao abrir a página
+carregarTarefas();
