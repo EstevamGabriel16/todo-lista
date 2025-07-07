@@ -22,7 +22,11 @@ function salvarNoLocalStorage() {
 function atualizarLista() {
     const data = inputData.value;
     lista.innerHTML = "";
-    const tarefas = tarefasPorData[data] || [];
+    const tarefas = [...(tarefasPorData[data] || [])];
+    // Ordena pelo horário 
+    tarefas.sort((a, b) => {
+        return a.hora.localeCompare(b.hora);
+    });
     tarefas.forEach((tarefa, index) => {
         const li = document.createElement("li");
         const checkbox = document.createElement("input");
